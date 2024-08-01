@@ -42,6 +42,7 @@ module.exports = function toReadable (num) {
           return numbers[+(digit[0]+"0")] + " " + numbers[+digit[1]] ;
        }
     }
+
     if(num > 99) {   
         const zeroCount = digit.match(/0/g)?.length ?? 0
         if(zeroCount === 2) {  
@@ -55,3 +56,28 @@ module.exports = function toReadable (num) {
         } 
     }
 }
+
+
+
+// let numarr = num.toString().split("").map(Number);
+//     let text = "";
+//     if(num <= 20) { 
+//       return numbers[num];
+//     }
+//     if(numarr.length == 2){
+//         text+= numbers[numarr[0]*10] + " " + (numbers[numarr[1]] == "zero" ? "": numbers[numarr[1]]); 
+//         return text.trim();
+//     }
+//     if(numarr.length == 3 ) { 
+//         if (numarr[1] == 1 ) { 
+//            return text+= numbers[numarr[0]]+ " hundred " + numbers[numarr[1].toString()+ numarr[2]];   
+//          } else if (numarr[1] == 0) { 
+//              text+= numbers[numarr[0]]+ " hundred " + (numbers[numarr[2]] == "zero" ? "" : numbers[numarr[2]]);
+//              return text.trim();
+//          }
+//         else {  
+//             text+= numbers[numarr[0]]+ " hundred " + numbers[numarr[1]*10] + " " + (numbers[numarr[2]] == "zero" ? "" : numbers[numarr[2]])
+//             return text.trim();
+//         }
+//     }  
+
