@@ -35,6 +35,7 @@ module.exports = function toReadable (num) {
     if(num < 20) {  
        return numbers[num];  
     }
+
     if(num <= 99 && num >= 20) {   
        if(digit[1] === "0"){   
           return numbers[num]; 
@@ -42,9 +43,9 @@ module.exports = function toReadable (num) {
           return numbers[+(digit[0]+"0")] + " " + numbers[+digit[1]] ;
        }
     }
-
     if(num > 99) {   
         const zeroCount = digit.match(/0/g)?.length ?? 0
+
         if(zeroCount === 2) {  
             return  numbers[+digit[0]] + " " + numbers[100]; 
         } else if (zeroCount === 1) {  
@@ -54,9 +55,16 @@ module.exports = function toReadable (num) {
                 return numbers[+digit[0]] + " hundred " + numbers[+(digit[1]+"0")];
             }  
         } 
+         else {  
+            if(digit[1] == 1) {  
+                console.log(numbers[+digit.slice(1)]);
+                return numbers[+digit[0]] + " hundred " + numbers[+(digit.slice(1))];
+            } else {  
+                return numbers[+digit[0]] + " hundred " + numbers[+(digit[1]+"0")] + " " + numbers[+digit[2]] ;
+            }
+      }
     }
 }
-
 
 
 // let numarr = num.toString().split("").map(Number);
